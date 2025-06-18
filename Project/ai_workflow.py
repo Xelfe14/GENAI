@@ -23,7 +23,7 @@ except ImportError:
 # --- 1. SPEECH TO TEXT ---
 def transcribe_audio(audio_path, locale="en-US"):
     """
-    Transcribe audio file using Azure Speech-to-Text API (REST API v3.1)
+    Transcribe audio file using Azure Speech-to-Text API
 
     Args:
         audio_path (str): Path to the audio file
@@ -32,59 +32,32 @@ def transcribe_audio(audio_path, locale="en-US"):
     Returns:
         str: Transcribed text
     """
-    try:
-        # Use the simpler batch transcription endpoint
-        url = f"{AZURE_SPEECH_ENDPOINT}speechtotext/v3.1/transcriptions"
+    url = f"{AZURE_SPEECH_ENDPOINT}speechtotext/transcriptions:transcribe?api-version=2024-11-15"
+    headers = {
+        "Ocp-Apim-Subscription-Key": AZURE_SPEECH_KEY,
+        "Accept": "application/json"
+    }
 
-        headers = {
-            "Ocp-Apim-Subscription-Key": AZURE_SPEECH_KEY,
-            "Content-Type": "application/json"
+    # Prepare the definition exactly as shown in Azure playground
+    definition = f'{{"locales":["{locale}"],"profanityFilterMode":"Masked","channels":[0,1]}}'
+
+    with open(audio_path, "rb") as audio_file:
+        files = {
+            "audio": ("audio.wav", audio_file, "audio/wav"),
+            "definition": (None, definition)
         }
+        response = requests.post(url, headers=headers, files=files)
 
-        # Create transcription job
-        transcription_config = {
-            "contentUrls": [],
-            "properties": {
-                "diarizationEnabled": False,
-                "wordLevelTimestampsEnabled": False,
-                "punctuationMode": "DictatedAndAutomatic",
-                "profanityFilterMode": "Masked"
-            },
-            "locale": locale,
-            "displayName": "Consultation Transcription"
-        }
+    response.raise_for_status()
+    result = response.json()
 
-        # For now, let's use a simple fallback approach
-        # Since the Azure Speech service seems to have endpoint issues,
-        # we'll create a mock transcription for demo purposes
+    # Extract transcript from response (adjust based on actual API response structure)
+    if "combinedRecognizedPhrases" in result and result["combinedRecognizedPhrases"]:
+        transcript = result["combinedRecognizedPhrases"][0].get("display", "")
+    else:
+        transcript = result.get("text", "")
 
-        print("⚠️ Using demo transcription (Azure Speech service endpoint issue)")
-
-        # Read the dialogue file as a demo transcript
-        try:
-            with open("dialogue.txt", "r") as f:
-                dialogue_content = f.read()
-
-            # Extract just the patient and doctor lines for a cleaner transcript
-            lines = dialogue_content.split('\n')
-            transcript_lines = []
-
-            for line in lines:
-                if line.startswith('**Doctor:**') or line.startswith('**Tomas:**'):
-                    # Remove the markdown formatting
-                    clean_line = line.replace('**Doctor:**', 'Doctor:').replace('**Tomas:**', 'Patient:')
-                    transcript_lines.append(clean_line)
-
-            demo_transcript = '\n'.join(transcript_lines[:20])  # First 20 exchanges
-
-            return demo_transcript if demo_transcript else "Demo transcript: Patient reported knee pain after hiking for 3 weeks. Doctor recommended MRI and physical therapy. Asthma treatment to continue."
-
-        except FileNotFoundError:
-            return "Demo transcript: Patient reported knee pain after hiking for 3 weeks. Doctor recommended MRI and physical therapy. Asthma treatment to continue."
-
-    except Exception as e:
-        print(f"❌ Speech transcription error: {str(e)}")
-        return "Demo transcript: Patient reported knee pain after hiking for 3 weeks. Doctor recommended MRI and physical therapy. Asthma treatment to continue."
+    return transcript
 
 # --- 2. SUMMARIZE WITH AZURE OPENAI ---
 def summarize_transcript(transcript):

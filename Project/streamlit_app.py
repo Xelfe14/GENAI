@@ -178,14 +178,7 @@ def record_consultation_tab():
             else:
                 st.warning("⚠️ Summary not added to RAG database")
 
-        ''' # Action buttons
-            col_a, col_b = st.columns(2)
-            with col_a:
-                if st.button("💬 Test in Chat"):
-                    st.switch_page = "chat"  # Would switch to chat tab
-            with col_b:
-                if st.button("📋 Generate Briefing"):
-                    st.switch_page = "summary"  # Would switch to summary tab'''
+
 
 def chat_interface_tab():
     st.header("Chat with AI Doctor")

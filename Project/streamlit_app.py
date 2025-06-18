@@ -98,8 +98,15 @@ def record_consultation_tab():
             if st.button("🔄 Process Recording", type="primary"):
                 with st.spinner("Processing audio consultation..."):
                     try:
-                        # Create a proper WAV file from audio bytes
+                                                # Create a proper WAV file from audio bytes
                         import io
+
+                        # Debug: Check audio data
+                        st.info(f"🎵 Audio data: {len(audio_bytes)} bytes, Type: {type(audio_bytes)}")
+
+                        # Check if we have enough audio data
+                        if len(audio_bytes) < 1000:  # Less than 1KB might be too short
+                            st.warning("⚠️ Audio recording seems very short. Try recording for longer.")
 
                         # Save audio to temporary file with proper headers
                         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
@@ -109,8 +116,13 @@ def record_consultation_tab():
                             tmp_file_path = tmp_file.name
 
                         # Verify file exists and has content
-                        if os.path.exists(tmp_file_path) and os.path.getsize(tmp_file_path) > 0:
-                            print(f"📁 Audio file created: {tmp_file_path} ({os.path.getsize(tmp_file_path)} bytes)")
+                        file_size = os.path.getsize(tmp_file_path)
+                        if os.path.exists(tmp_file_path) and file_size > 0:
+                            st.info(f"📁 Audio file created: {file_size} bytes")
+
+                            # For very short recordings, warn the user
+                            if file_size < 5000:  # Less than 5KB
+                                st.warning("⚠️ Audio file is quite small. If transcription fails, try recording for longer with clearer speech.")
 
                             # Process the audio
                             result = process_voice_memo(

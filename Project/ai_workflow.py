@@ -74,12 +74,25 @@ def transcribe_audio(audio_path, locale="en-US"):
     result = response.json()
     print(f"📊 Azure Speech result keys: {list(result.keys())}")
 
-    # Extract transcript from response (adjust based on actual API response structure)
-    if "combinedRecognizedPhrases" in result and result["combinedRecognizedPhrases"]:
+    # Extract transcript from response (using actual Azure response structure)
+    transcript = ""
+
+    # Try the actual response format first
+    if "combinedPhrases" in result and result["combinedPhrases"]:
+        for phrase in result["combinedPhrases"]:
+            if phrase.get("text", "").strip():
+                transcript += phrase["text"] + " "
+        transcript = transcript.strip()
+
+    # Fallback to other possible formats
+    if not transcript and "combinedRecognizedPhrases" in result and result["combinedRecognizedPhrases"]:
         transcript = result["combinedRecognizedPhrases"][0].get("display", "")
-    else:
+
+    # Final fallback
+    if not transcript:
         transcript = result.get("text", "")
 
+    print(f"📝 Final extracted transcript: '{transcript}' ({len(transcript)} chars)")
     return transcript
 
 # --- 2. SUMMARIZE WITH AZURE OPENAI ---

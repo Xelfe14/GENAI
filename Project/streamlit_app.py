@@ -98,20 +98,32 @@ def record_consultation_tab():
             if st.button("🔄 Process Recording", type="primary"):
                 with st.spinner("Processing audio consultation..."):
                     try:
-                        # Save audio to temporary file
+                        # Create a proper WAV file from audio bytes
+                        import io
+
+                        # Save audio to temporary file with proper headers
                         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
+                            # The audio_recorder returns raw audio bytes, write them directly
                             tmp_file.write(audio_bytes)
+                            tmp_file.flush()  # Ensure data is written
                             tmp_file_path = tmp_file.name
 
-                        # Process the audio
-                        result = process_voice_memo(
-                            audio_path=tmp_file_path,
-                            patient_id=patient_id,
-                            ingest_to_rag=True
-                        )
+                        # Verify file exists and has content
+                        if os.path.exists(tmp_file_path) and os.path.getsize(tmp_file_path) > 0:
+                            print(f"📁 Audio file created: {tmp_file_path} ({os.path.getsize(tmp_file_path)} bytes)")
+
+                            # Process the audio
+                            result = process_voice_memo(
+                                audio_path=tmp_file_path,
+                                patient_id=patient_id,
+                                ingest_to_rag=True
+                            )
+                        else:
+                            raise ValueError("Failed to create valid audio file")
 
                         # Clean up temporary file
-                        os.unlink(tmp_file_path)
+                        if os.path.exists(tmp_file_path):
+                            os.unlink(tmp_file_path)
 
                         # Display results
                         if result["status"] == "success":

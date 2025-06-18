@@ -41,15 +41,38 @@ def transcribe_audio(audio_path, locale="en-US"):
     # Prepare the definition exactly as shown in Azure playground
     definition = f'{{"locales":["{locale}"],"profanityFilterMode":"Masked","channels":[0,1]}}'
 
+    # Check if file exists and has content
+    if not os.path.exists(audio_path):
+        raise FileNotFoundError(f"Audio file not found: {audio_path}")
+
+    file_size = os.path.getsize(audio_path)
+    if file_size == 0:
+        raise ValueError(f"Audio file is empty: {audio_path}")
+
+    print(f"📤 Sending audio file to Azure Speech: {file_size} bytes")
+
     with open(audio_path, "rb") as audio_file:
         files = {
             "audio": ("audio.wav", audio_file, "audio/wav"),
             "definition": (None, definition)
         }
-        response = requests.post(url, headers=headers, files=files)
+
+        print(f"🔗 Making request to: {url}")
+        response = requests.post(url, headers=headers, files=files, timeout=30)
+
+    print(f"📥 Azure Speech response: {response.status_code}")
+
+    # Better error handling
+    if response.status_code == 401:
+        raise Exception("Azure Speech authentication failed - check your API key")
+    elif response.status_code == 400:
+        raise Exception(f"Bad request to Azure Speech: {response.text}")
+    elif response.status_code != 200:
+        raise Exception(f"Azure Speech error {response.status_code}: {response.text}")
 
     response.raise_for_status()
     result = response.json()
+    print(f"📊 Azure Speech result keys: {list(result.keys())}")
 
     # Extract transcript from response (adjust based on actual API response structure)
     if "combinedRecognizedPhrases" in result and result["combinedRecognizedPhrases"]:

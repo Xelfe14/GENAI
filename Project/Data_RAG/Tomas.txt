@@ -1,0 +1,26 @@
+[
+  {
+    "patient_id": "tomas",
+    "text": "Section: Doctor Summary\nThe patient has been diagnosed with mild asthma. Inhaler prescribed for use twice daily.",
+    "category": "summary_notes",
+    "date": "2025-06-01"
+  },
+  {
+    "patient_id": "tomas",
+    "text": "Section: Prescription\nSalbutamol inhaler, two puffs twice a day. Follow-up in 4 weeks.",
+    "category": "prescriptions",
+    "date": "2025-06-01"
+  },
+  {
+    "patient_id": "tomas",
+    "text": "Section: Next Appointment\nScheduled with Dr. Silva on July 2, 2025 at 10:00AM.",
+    "category": "appointments",
+    "date": "2025-06-01"
+  },
+  {
+    "patient_id": "tomas",
+    "text": "Tom\u00e1s reported experiencing mild wheezing and occasional shortness of breath during physical activity. The physician confirmed a diagnosis of mild asthma and prescribed a salbutamol inhaler for use twice daily. Lung function appeared stable, and no signs of infection were observed. A follow-up appointment was scheduled in four weeks to assess treatment response.",
+    "category": "summary_notes",
+    "date": "2025-06-15"
+  }
+]

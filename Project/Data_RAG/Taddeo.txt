@@ -1,0 +1,20 @@
+[
+  {
+    "patient_id": "taddeo",
+    "text": "Section: Emergency Visit\nPatient admitted for severe abdominal pain. Diagnosed with appendicitis. Surgery performed successfully.",
+    "category": "summary_notes",
+    "date": "2025-04-28"
+  },
+  {
+    "patient_id": "taddeo",
+    "text": "Section: Post-op Instructions\nAvoid heavy lifting for 3 weeks. Pain medication provided. Monitor for fever or bleeding.",
+    "category": "discharge_instructions",
+    "date": "2025-04-29"
+  },
+  {
+    "patient_id": "taddeo",
+    "text": "Section: Prescription\nAmoxicillin 500mg three times daily for 7 days.",
+    "category": "prescriptions",
+    "date": "2025-04-29"
+  }
+]

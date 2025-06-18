@@ -1,0 +1,8 @@
+[
+  {
+    "patient_id": "santiago",
+    "text": "Santiago visited the clinic with complaints of frequent headaches and difficulty concentrating. After evaluation, the doctor attributed the symptoms to elevated stress levels and irregular sleep patterns. Lifestyle changes were recommended, including reduced screen time and improved sleep hygiene. No medication was prescribed at this stage; a review is planned in three weeks.",
+    "category": "summary_notes",
+    "date": "2025-06-15"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "patient_id": "moayad",
+    "text": "Section: Lab Results\nBlood pressure normal. Cholesterol slightly elevated at 215 mg/dL. Recommendation: dietary adjustment.",
+    "category": "lab_results",
+    "date": "2025-05-20"
+  },
+  {
+    "patient_id": "moayad",
+    "text": "Section: Doctor Summary\nPatient advised to reduce red meat consumption and increase physical activity. Re-check scheduled in 3 months.",
+    "category": "summary_notes",
+    "date": "2025-05-20"
+  },
+  {
+    "patient_id": "moayad",
+    "text": "Section: Prescription\nNo medication prescribed. Dietary tracking app recommended.",
+    "category": "prescriptions",
+    "date": "2025-05-20"
+  }
+]

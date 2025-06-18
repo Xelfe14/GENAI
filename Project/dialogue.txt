@@ -1,0 +1,67 @@
+**Doctor-Patient Consultation Dialogue for Presentation**
+Patient: Tomas
+New Issue: Knee Pain (not in existing medical records)
+
+---
+
+**Doctor:** Good morning, Tomas! How are you doing today? I see you're here for a follow-up, but also mentioned you have a new concern?
+
+**Tomas:** Good morning, Doctor. Yes, my asthma has been stable with the inhaler you prescribed, but I've been having some new problems with my right knee for the past three weeks.
+
+**Doctor:** I'm glad to hear your asthma is well-controlled. Tell me more about this knee pain. When did it start exactly?
+
+**Tomas:** It started about three weeks ago after I went hiking with some friends. At first, I thought it was just normal soreness, but the pain has gotten worse, especially when I climb stairs or get up from sitting.
+
+**Doctor:** I see. Can you describe the type of pain? Is it sharp, dull, throbbing?
+
+**Tomas:** It's mostly a dull ache, but sometimes I get sharp pains when I bend my knee fully. It's also a bit swollen, especially in the evenings.
+
+**Doctor:** Have you noticed any clicking or locking sensation in the knee?
+
+**Tomas:** Yes, actually! Sometimes it clicks when I straighten my leg, and yesterday it felt like it got stuck for a moment when I was getting out of my car.
+
+**Doctor:** Any redness, warmth, or fever associated with this?
+
+**Tomas:** No fever, but the knee does feel slightly warm to touch, and there's a bit of swelling around the kneecap.
+
+**Doctor:** Have you been able to walk normally? Any limping?
+
+**Tomas:** I can walk, but I'm definitely favoring my left leg. I've been avoiding stairs as much as possible because it really hurts going down.
+
+**Doctor:** What about your activity level? Are you still exercising regularly?
+
+**Tomas:** I've stopped my usual jogging routine completely. Even my breathing exercises for asthma are harder because I can't get comfortable sitting cross-legged on the floor.
+
+**Doctor:** Let me examine your knee. Based on what you're describing - the onset after hiking, the swelling, clicking, and pain with movement - this sounds like it could be a meniscus injury or possible patellofemoral pain syndrome.
+
+**Tomas:** Is that serious? Will I need surgery?
+
+**Doctor:** Let's not jump ahead. I'm going to refer you for an MRI to get a clearer picture of what's happening inside the knee. In the meantime, I want you to rest the knee, apply ice for 15 minutes several times a day, and take ibuprofen for the inflammation.
+
+**Tomas:** Should I completely stop all activities?
+
+**Doctor:** Avoid high-impact activities like running or hiking, but gentle walking is fine. I'm also going to refer you to physical therapy. They can teach you some exercises to strengthen the muscles around your knee and help with the pain.
+
+**Tomas:** Okay, and what about my asthma inhaler? Should I continue with that?
+
+**Doctor:** Absolutely, continue with your Salbutamol as prescribed. The knee issue doesn't affect your asthma treatment at all. I want to see you back in two weeks after you've had the MRI, and we'll discuss the results and next steps.
+
+**Tomas:** Alright, thank you, Doctor. I'll schedule the MRI and start the physical therapy. Should I be worried about this affecting my work? I'm on my feet quite a bit.
+
+**Doctor:** Try to minimize prolonged standing and take breaks to elevate your leg when possible. If the pain becomes severe or you develop significant swelling, don't wait for our appointment - call the office immediately.
+
+**Tomas:** Perfect, thank you so much. I'll follow your instructions and see you in two weeks.
+
+**Doctor:** Take care, Tomas. We'll get this sorted out for you.
+
+---
+
+**Key Points for AI Summary:**
+- New chief complaint: Right knee pain for 3 weeks
+- Started after hiking activity
+- Symptoms: Dull ache, sharp pain with full flexion, swelling, clicking, occasional locking
+- Physical findings: Swelling around patella, warmth, no fever
+- Functional impact: Difficulty with stairs, stopped jogging, limping
+- Plan: MRI referral, rest, ice, ibuprofen, physical therapy referral
+- Follow-up in 2 weeks
+- Continue current asthma medication (Salbutamol)

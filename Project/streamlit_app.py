@@ -30,7 +30,7 @@ PATIENTS = ["moayad", "taddeo", "santiago", "tomas"]
 
 def main():
     # Header
-    st.title("🏥 Personalized Health Hub")
+    st.title("🏥 MedMate")
     st.markdown("*AI-Powered Medical Assistant with Voice Recording & RAG Integration*")
 
     # Sidebar for patient selection

@@ -9,7 +9,7 @@ from patient_summarizer import PatientSummarizer
 
 # Configure Streamlit page
 st.set_page_config(
-    page_title="🏥 Personalized Health Hub",
+    page_title="🏥 MedMate",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"

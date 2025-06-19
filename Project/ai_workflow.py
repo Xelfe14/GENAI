@@ -135,13 +135,11 @@ If a field is absent, leave the value empty (e.g. Plan_Assistive: on its own lin
 
 Keep lists either as - item bullet lines or comma-separated—stay consistent.
 
-Do not add extra commentary or speaker tags.
+Add also a short paragraph, with a natural language summary of the transcript
 
 Field order (write them exactly):
 Visit_Date:
 Chief_Complaint:
-Diagnosis_ICD10:
-Diagnosis_Label:
 Diagnosis_Stage:
 Symptoms:
 Exam_Findings:
